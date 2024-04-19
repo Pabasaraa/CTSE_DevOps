@@ -23,6 +23,11 @@ const BlogDetails = () => {
       });
   }, [id]); // Adding 'id' to dependency array to fetch data when ID changes
 
+  useEffect(() => {
+    if (!isAuthorized) {
+      navigateTo("/login");
+    }
+  }, [isAuthorized, navigateTo]); // Adding 'isAuthorized' and 'navigateTo' to dependency array
 
   return (
     <section className="blogDetail page">
